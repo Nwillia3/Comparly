@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import CryptoData from "../api_data/crypto";
 
 class Crypto extends Component {
   render() {
-    return <h1> Living Life like its golden </h1>;
+    return <CryptoData />;
   }
 }
 
