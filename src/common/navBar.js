@@ -10,8 +10,8 @@ class Navbar extends Component {
         </Link>
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <Link to="/cars"> Cars </Link>
-            <Link to="/crypto"> Crypto </Link>
+            <Link to="/books"> Books </Link>
+            <Link to="/nba"> NBA </Link>
           </li>
         </ul>
       </nav>
