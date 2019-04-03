@@ -1,28 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Input from "../common/input";
+import Form from "../common/Form";
 
 class Books extends Component {
-  state = {
-    books: {},
-    tags: {}
-  };
+  // async componentDidMount() {
+  //   const { data: books } = await axios.get(
+  //     "https://api.nytimes.com/svc/books/v3/lists.json?list=&api-key=TQbVMnVxbQNKumGgUG4AtV6EmTebE0yp"
+  //   );
 
-  async componentDidMount() {
-    const { data: books } = await axios.get(
-      "https://api.nytimes.com/svc/books/v3/lists.json?list=Hardcover%20Nonfiction&api-key=TQbVMnVxbQNKumGgUG4AtV6EmTebE0yp"
-    );
-
-    this.setState({ books });
-    console.log(this.state.books.results[0]);
-  }
-
-  getList = () => {
-    console.log("list");
-  };
+  //   this.setState({ books });
+  //   console.log(this.state.books.results[0]);
+  // }
 
   renderUI() {
-    const { results } = this.state.books;
+    const { results } = this.props.books;
     if (results) {
       const ui = results.map(item => {
         return (
@@ -34,19 +25,14 @@ class Books extends Component {
         );
       });
       return ui;
+    } else {
+      return <h1> Data Loading</h1>;
     }
   }
 
   render() {
-    console.log(this.state.books.results);
-    return (
-      <div className="container">
-        <div>
-          <Input />
-        </div>
-        {this.renderUI()}
-      </div>
-    );
+    // console.log(this.state.books.results);
+    return <div className="container">{this.renderUI()}</div>;
   }
 }
 
